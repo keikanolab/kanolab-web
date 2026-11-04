@@ -2,20 +2,20 @@
    レイアウトは現行サイト（Google Sites）のデザインを踏襲し、
    配色は制作マニュアルの指定（柿渋色・墨色・深緑・白）を優先する。 */
 :root {
-  --bg: #ffffff;
-  --surface: #ffffff;
-  --tint: #f7efe9;        /* 柿渋の淡い地色 */
-  --ink: #26221f;         /* 墨色 */
-  --ink-soft: #5c544d;
-  --accent: #9a4a2f;      /* 柿渋色の赤褐色 */
-  --accent-dark: #7a3720;
-  --on-accent: #ffffff;
-  --accent-line: #d9b3a3; /* 区切り線用の淡い柿渋 */
-  --green: #2f5d4a;       /* 深緑（少量） */
-  --line: #e6ded6;
-  --todo-bg: #fff1b8;
-  --todo-ink: #5a4300;
-  color-scheme: light;
+  --bg: #000000;
+  --surface: #000000;
+  --tint: #081016;        /* 柿渋の淡い地色 */
+  --ink: #d9dde0;         /* 墨色 */
+  --ink-soft: #a3abb2;
+  --accent: #65b5d0;      /* 柿渋色の赤褐色 */
+  --accent-dark: #85c8df;
+  --on-accent: #000000;
+  --accent-line: #264c5c; /* 区切り線用の淡い柿渋 */
+  --green: #d0a2b5;       /* 深緑（少量） */
+  --line: #192129;
+  --todo-bg: #000e47;
+  --todo-ink: #a5bcff;
+  color-scheme: dark;
   --radius: 2px;
   --max-width: 1080px;
   --font-serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
@@ -60,7 +60,7 @@ a:hover { color: var(--accent-dark); }
 
 /* ヘッダー・ナビゲーション */
 .site-header {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(0, 0, 0, 0.94);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
   position: sticky;

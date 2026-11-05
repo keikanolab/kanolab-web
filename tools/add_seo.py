@@ -9,7 +9,7 @@ import json
 import re
 from pathlib import Path
 
-BASE = "https://sanorie-kanolab.github.io/kanolab-web/"  # 末尾はスラッシュ
+BASE = "https://keikanolab.github.io/kanolab-web/"  # 末尾はスラッシュ
 ROOT = Path(__file__).resolve().parent.parent
 START, END = "<!-- seo:start -->", "<!-- seo:end -->"
 SITE_NAME = {"ja": "加納研究室", "en": "Kano Lab"}

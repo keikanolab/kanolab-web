@@ -5,17 +5,17 @@
 Japanese pages are at the site root; English pages are under /en/ with the same paths.
 
 ## Main pages
-- [Home](https://sanorie-kanolab.github.io/kanolab-web/en/): lab overview
-- [Research](https://sanorie-kanolab.github.io/kanolab-web/en/research/): the three research areas and past projects
-- [UNESCO Chair](https://sanorie-kanolab.github.io/kanolab-web/en/unesco-chair/): UNESCO Chair on STEAM education weaving traditional cultural resources and science
-- [Workshops](https://sanorie-kanolab.github.io/kanolab-web/en/workshops/): STEAM workshops for children, families and the public
-- [Games & Books](https://sanorie-kanolab.github.io/kanolab-web/en/games-books/): game-based teaching materials and books
-- [People](https://sanorie-kanolab.github.io/kanolab-web/en/people/): members
-- [Join the Lab](https://sanorie-kanolab.github.io/kanolab-web/en/join/): doctoral, JSPS fellow, visiting and collaborative research
-- [Contact](https://sanorie-kanolab.github.io/kanolab-web/en/contact/)
-- [Access](https://sanorie-kanolab.github.io/kanolab-web/en/access/)
+- [Home](https://keikanolab.github.io/kanolab-web/en/): lab overview
+- [Research](https://keikanolab.github.io/kanolab-web/en/research/): the three research areas and past projects
+- [UNESCO Chair](https://keikanolab.github.io/kanolab-web/en/unesco-chair/): UNESCO Chair on STEAM education weaving traditional cultural resources and science
+- [Workshops](https://keikanolab.github.io/kanolab-web/en/workshops/): STEAM workshops for children, families and the public
+- [Games & Books](https://keikanolab.github.io/kanolab-web/en/games-books/): game-based teaching materials and books
+- [People](https://keikanolab.github.io/kanolab-web/en/people/): members
+- [Join the Lab](https://keikanolab.github.io/kanolab-web/en/join/): doctoral, JSPS fellow, visiting and collaborative research
+- [Contact](https://keikanolab.github.io/kanolab-web/en/contact/)
+- [Access](https://keikanolab.github.io/kanolab-web/en/access/)
 
 ## Japanese
-- [ホーム](https://sanorie-kanolab.github.io/kanolab-web/): 研究室の公式概要
-- [研究](https://sanorie-kanolab.github.io/kanolab-web/research/)
-- [ユネスコチェア](https://sanorie-kanolab.github.io/kanolab-web/unesco-chair/)
+- [ホーム](https://keikanolab.github.io/kanolab-web/): 研究室の公式概要
+- [研究](https://keikanolab.github.io/kanolab-web/research/)
+- [ユネスコチェア](https://keikanolab.github.io/kanolab-web/unesco-chair/)

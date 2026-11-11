@@ -84,6 +84,7 @@ def main() -> None:
     pages = sorted(ROOT.rglob("index.html"))
     pages = [p for p in pages if ".git" not in p.parts]
     entries = []
+    hidden = set()
     for page in pages:
         text = page.read_text(encoding="utf-8")
         text = re.sub(r"\n  " + re.escape(START) + r".*?" + re.escape(END), "", text, flags=re.S)
@@ -95,10 +96,14 @@ def main() -> None:
         text = text.replace(marker.group(1), marker.group(1) + "\n  " + block, 1)
         page.write_text(text, encoding="utf-8")
         entries.append((path, meta(text, r'<time datetime="([\d-]+)"')))
+        if '<meta name="robots" content="noindex">' in text:
+            hidden.add(path)  # 準備中などで検索に出さないページはサイトマップから除く
 
     ja = {p for p, _ in entries if not p.startswith("en/") and p != "en/"}
     rows = []
     for path, modified in entries:
+        if path in hidden:
+            continue
         other = counterpart(path)
         alt = ""
         if other in {p for p, _ in entries}:

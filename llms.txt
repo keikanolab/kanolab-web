@@ -7,7 +7,7 @@ Japanese pages are at the site root; English pages are under /en/ with the same 
 ## Main pages
 - [Home](https://keikanolab.github.io/kanolab-web/en/): lab overview
 - [Research](https://keikanolab.github.io/kanolab-web/en/research/): the three research areas and past projects
-- [UNESCO Chair](https://keikanolab.github.io/kanolab-web/en/unesco-chair/): UNESCO Chair on STEAM education weaving traditional cultural resources and science
+- [UNESCO Chair](https://keikanolab.github.io/kanolab-web/en/unesco-chair/): in preparation
 - [Workshops](https://keikanolab.github.io/kanolab-web/en/workshops/): STEAM workshops for children, families and the public
 - [Games & Books](https://keikanolab.github.io/kanolab-web/en/games-books/): game-based teaching materials and books
 - [People](https://keikanolab.github.io/kanolab-web/en/people/): members
@@ -18,4 +18,4 @@ Japanese pages are at the site root; English pages are under /en/ with the same 
 ## Japanese
 - [ホーム](https://keikanolab.github.io/kanolab-web/): 研究室の公式概要
 - [研究](https://keikanolab.github.io/kanolab-web/research/)
-- [ユネスコチェア](https://keikanolab.github.io/kanolab-web/unesco-chair/)
+- [ユネスコチェア](https://keikanolab.github.io/kanolab-web/unesco-chair/): 準備中

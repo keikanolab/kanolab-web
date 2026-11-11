@@ -151,12 +151,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://keikanolab.github.io/kanolab-web/en/research/traditional-knowledge/"/>
   </url>
   <url>
-    <loc>https://keikanolab.github.io/kanolab-web/en/unesco-chair/</loc>
-    <lastmod>2026-11-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://keikanolab.github.io/kanolab-web/unesco-chair/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keikanolab.github.io/kanolab-web/en/unesco-chair/"/>
-  </url>
-  <url>
     <loc>https://keikanolab.github.io/kanolab-web/en/workshops/</loc>
     <lastmod>2026-10-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://keikanolab.github.io/kanolab-web/workshops/"/>
@@ -293,12 +287,6 @@
     <lastmod>2026-10-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://keikanolab.github.io/kanolab-web/research/traditional-knowledge/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://keikanolab.github.io/kanolab-web/en/research/traditional-knowledge/"/>
-  </url>
-  <url>
-    <loc>https://keikanolab.github.io/kanolab-web/unesco-chair/</loc>
-    <lastmod>2026-11-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://keikanolab.github.io/kanolab-web/unesco-chair/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keikanolab.github.io/kanolab-web/en/unesco-chair/"/>
   </url>
   <url>
     <loc>https://keikanolab.github.io/kanolab-web/workshops/</loc>

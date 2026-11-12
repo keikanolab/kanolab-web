@@ -296,6 +296,13 @@ figure.media figcaption {
   font-size: 0.85rem;
   color: var(--ink-soft);
 }
+/* メンバーページの顔写真：広い画面では本文の右に回り込み、狭い画面では見出しの下に置く */
+figure.media.portrait { max-width: 14rem; }
+figure.media.portrait img { width: 100%; }
+@media (min-width: 40rem) {
+  figure.media.portrait { float: right; width: 15rem; max-width: 40%; margin: 0.4rem 0 1rem 1.75rem; }
+}
+.has-portrait::after { content: ""; display: block; clear: both; }
 .media-row {
   display: flex;
   flex-wrap: wrap;

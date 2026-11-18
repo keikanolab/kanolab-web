@@ -32,16 +32,16 @@ python3 -m http.server 8000
 # open http://localhost:8000/
 ```
 
-## Pre-publication review (preview site)
+## Pre-publication review (preview pages)
 
-Changes are reviewed by the lab on a preview site before they go live.
+Changes are reviewed by the lab on the preview pages before they go live.
 
 - Live site: https://keikanolab.github.io/kanolab-web/ (`main` branch)
-- Preview site: https://keikanolab.github.io/kanolab-web-preview/ (repository `keikanolab/kanolab-web-preview`)
+- Preview: https://keikanolab.github.io/kanolab-web/preview/ (`preview` branch)
 
-Workflow: commit changes to the `preview` branch and push it (this does not publish), run `bash tools/deploy_preview.sh` to update the preview site, have the lab review it, then merge `preview` into `main` and push to publish.
+Workflow: commit changes to the `preview` branch and push it; the preview pages update automatically within a few minutes and the live site does not change. After the lab has reviewed them, merge `preview` into `main` and push to publish.
 
-The preview site adds a "Preview, not public" banner and `noindex` to every page and disallows crawling in `robots.txt`. It is not shown in search results but anyone with the URL can open it, so do not put unpublished personal or confidential information there. The preview repository is replaced on every deploy; do not edit it directly.
+GitHub Actions (`.github/workflows/deploy.yml`) deploys `main` as the live site and `preview` under `/preview/`. `tools/build_preview.py` adds a "Preview, not public" banner and `noindex` to every preview page. They are not shown in search results but anyone with the URL can open them, so do not put unpublished personal or confidential information there.
 
 ## SEO and AI discoverability
 

@@ -32,21 +32,20 @@ python3 -m http.server 8000
 # http://localhost:8000/ を開く
 ```
 
-## 公開前の確認（確認用サイト）
+## 公開前の確認（確認用ページ）
 
-変更は、いきなり本番に入れず、まず確認用サイトで研究室メンバーが確認してから公開します。
+変更は、いきなり本番に入れず、まず確認用ページで研究室メンバーが確認してから公開します。
 
 - 本番サイト：https://keikanolab.github.io/kanolab-web/ （`main` ブランチ）
-- 確認用サイト：https://keikanolab.github.io/kanolab-web-preview/ （リポジトリ `keikanolab/kanolab-web-preview`）
+- 確認用ページ：https://keikanolab.github.io/kanolab-web/preview/ （`preview` ブランチ）
 
 流れ：
 
-1. 作業用ブランチ `preview` で変更し、コミットして `origin/preview` にpushする（本番には反映されない）。
-2. `bash tools/deploy_preview.sh` で確認用サイトを更新する。
-3. 研究室で確認用サイトを見て、修正があれば1〜2を繰り返す。
-4. OKが出たら `preview` を `main` にマージしてpushし、本番に公開する。
+1. `preview` ブランチで変更し、コミットしてpushする。数分で確認用ページが自動で更新される（本番は変わらない）。
+2. 研究室で確認用ページを見て、修正があれば1を繰り返す。
+3. OKが出たら `preview` を `main` にマージしてpushし、本番に公開する。
 
-確認用サイトは、全ページに「確認用ページ（未公開）」の帯と `noindex` が入り、`robots.txt` でクロールを禁止しています。検索には出ませんが、URLを知っていれば誰でも開けるので、未公開の個人情報や機密情報は載せないでください。確認用リポジトリは毎回まるごと置き換えるので、直接編集しないでください。
+公開は GitHub Actions（`.github/workflows/deploy.yml`）が行い、`main` の内容を本番に、`preview` の内容を `/preview/` に置きます。確認用ページは `tools/build_preview.py` で作り、全ページに「確認用ページ（未公開）」の帯と `noindex` が入ります。検索には出ませんが、URLを知っていれば誰でも開けるので、未公開の個人情報や機密情報は載せないでください。
 
 ## 進捗
 

@@ -1,0 +1,63 @@
+# 本番サイトと確認用ページをまとめて GitHub Pages に公開する。
+# - 本番: main ブランチの内容を https://keikanolab.github.io/kanolab-web/ に
+# - 確認用: preview ブランチの内容を https://keikanolab.github.io/kanolab-web/preview/ に
+#   （全ページに「確認用（未公開）」の帯と noindex を付ける。tools/build_preview.py）
+# preview ブランチへの push では「Preview updated」が動き、その完了を受けてこの処理が main 上で走る。
+# GitHub Pages の公開は main 上で動く処理からしか許可されないため、この形にしている。
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: ["Preview updated"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main (live site)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: live
+      - name: Check out preview
+        id: preview
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          ref: preview
+          path: preview-src
+      - name: Assemble site
+        run: |
+          mkdir _site
+          cp -a live/. _site/ && rm -rf _site/.git _site/.github
+          if [ "${{ steps.preview.outcome }}" = "success" ] && [ -f preview-src/tools/build_preview.py ]; then
+            python3 preview-src/tools/build_preview.py _site/preview "preview $(git -C preview-src rev-parse --short HEAD)"
+          else
+            echo "preview ブランチが無いため、確認用ページは作りません"
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

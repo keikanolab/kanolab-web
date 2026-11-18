@@ -1,0 +1,16 @@
+# preview ブランチが更新されたことを知らせるだけの処理。
+# これが終わると deploy.yml（Deploy site）が main 上で動き、確認用ページを作り直す。
+name: Preview updated
+
+on:
+  push:
+    branches: [preview]
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "preview が更新されました。Deploy site で確認用ページを作り直します。"

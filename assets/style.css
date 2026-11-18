@@ -241,6 +241,7 @@ a:hover { color: var(--accent-dark); }
 .side-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1.5rem; }
 .side-photos figure.media { margin: 0; }
 .side-photos img { width: 100%; }
+.side-photos.single { grid-template-columns: 1fr; max-width: 22rem; }
 @media (min-width: 62rem) {
   .has-side-photos { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 2rem; align-items: start; }
   .side-photos { grid-template-columns: 1fr; margin-top: 0.4rem; }

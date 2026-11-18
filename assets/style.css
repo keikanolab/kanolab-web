@@ -237,6 +237,13 @@ a:hover { color: var(--accent-dark); }
 .overview h2 { margin-top: 0; }
 .overview p { font-size: 1.05rem; }
 .overview p:last-child { margin-bottom: 0; }
+/* 公式概要の横の写真：広い画面では本文の右、狭い画面では本文の下 */
+.overview-photo { max-width: 20rem; margin: 1.75rem 0 0; }
+.overview-photo img { width: 100%; }
+@media (min-width: 48rem) {
+  .overview.has-photo { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 2.5rem; align-items: start; }
+  .overview-photo { margin: 0; max-width: none; }
+}
 
 /* カード：枠線のない罫線区切り。リンクは矢印付きのテキスト */
 .card-grid {

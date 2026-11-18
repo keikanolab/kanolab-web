@@ -237,6 +237,14 @@ a:hover { color: var(--accent-dark); }
 .overview h2 { margin-top: 0; }
 .overview p { font-size: 1.05rem; }
 .overview p:last-child { margin-bottom: 0; }
+/* 本文の横に写真を並べる欄（研究ページの事例など）：広い画面では本文の右に縦並び、狭い画面では本文の下に横並び */
+.side-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1.5rem; }
+.side-photos figure.media { margin: 0; }
+.side-photos img { width: 100%; }
+@media (min-width: 62rem) {
+  .has-side-photos { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 2rem; align-items: start; }
+  .side-photos { grid-template-columns: 1fr; margin-top: 0.4rem; }
+}
 /* 公式概要の横の写真：広い画面では本文の右、狭い画面では本文の下 */
 .overview-photo { max-width: 20rem; margin: 1.75rem 0 0; }
 .overview-photo img { width: 100%; }

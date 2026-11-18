@@ -32,6 +32,17 @@ python3 -m http.server 8000
 # open http://localhost:8000/
 ```
 
+## Pre-publication review (preview site)
+
+Changes are reviewed by the lab on a preview site before they go live.
+
+- Live site: https://keikanolab.github.io/kanolab-web/ (`main` branch)
+- Preview site: https://keikanolab.github.io/kanolab-web-preview/ (repository `keikanolab/kanolab-web-preview`)
+
+Workflow: commit changes to the `preview` branch and push it (this does not publish), run `bash tools/deploy_preview.sh` to update the preview site, have the lab review it, then merge `preview` into `main` and push to publish.
+
+The preview site adds a "Preview, not public" banner and `noindex` to every page and disallows crawling in `robots.txt`. It is not shown in search results but anyone with the URL can open it, so do not put unpublished personal or confidential information there. The preview repository is replaced on every deploy; do not edit it directly.
+
 ## SEO and AI discoverability
 
 `python3 -I tools/add_seo.py` inserts canonical / hreflang / Open Graph / JSON-LD into every page (between `<!-- seo:start -->` and `<!-- seo:end -->`) and regenerates `sitemap.xml` and `robots.txt`. It is idempotent. If the public URL changes, edit `BASE` in the script and run it again (also update `llms.txt`). Re-run it after changing a page's title, description or update date.

@@ -32,6 +32,22 @@ python3 -m http.server 8000
 # http://localhost:8000/ を開く
 ```
 
+## 公開前の確認（確認用サイト）
+
+変更は、いきなり本番に入れず、まず確認用サイトで研究室メンバーが確認してから公開します。
+
+- 本番サイト：https://keikanolab.github.io/kanolab-web/ （`main` ブランチ）
+- 確認用サイト：https://keikanolab.github.io/kanolab-web-preview/ （リポジトリ `keikanolab/kanolab-web-preview`）
+
+流れ：
+
+1. 作業用ブランチ `preview` で変更し、コミットして `origin/preview` にpushする（本番には反映されない）。
+2. `bash tools/deploy_preview.sh` で確認用サイトを更新する。
+3. 研究室で確認用サイトを見て、修正があれば1〜2を繰り返す。
+4. OKが出たら `preview` を `main` にマージしてpushし、本番に公開する。
+
+確認用サイトは、全ページに「確認用ページ（未公開）」の帯と `noindex` が入り、`robots.txt` でクロールを禁止しています。検索には出ませんが、URLを知っていれば誰でも開けるので、未公開の個人情報や機密情報は載せないでください。確認用リポジトリは毎回まるごと置き換えるので、直接編集しないでください。
+
 ## 進捗
 
 - 完了：全26ページ（日本語・英語）。文章とリンクはマニュアルに基づく。

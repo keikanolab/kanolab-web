@@ -587,10 +587,12 @@ figure.media:hover img { transform: scale(1.02); }
 .section .container > .btn { justify-self: start; align-self: start; }
 
 /* 公式概要の横のキャラクター：広い画面では本文の右、狭い画面では本文の下に小さく */
-.overview-mascot { display: block; width: 7rem; height: auto; margin: 1.5rem 0 0 auto; }
+/* キャラクターは上の方に：狭い画面では見出しの上の右側、広い画面では本文の右上 */
+.overview.has-photo:has(.overview-mascot) { display: flex; flex-direction: column; }
+.overview-mascot { display: block; order: -1; align-self: flex-end; width: 5.5rem; height: auto; margin: 0 0 -0.5rem; }
 @media (min-width: 48rem) {
-  .overview.has-photo:has(.overview-mascot) { grid-template-columns: minmax(0, 1fr) 12rem; align-items: center; }
-  .overview-mascot { width: 11rem; margin: 0 auto; }
+  .overview.has-photo:has(.overview-mascot) { display: grid; grid-template-columns: minmax(0, 1fr) 12rem; align-items: start; }
+  .overview-mascot { order: 0; align-self: start; width: 11rem; margin: 0 auto; }
 }
 
 /* ===== A案：トップ以外のページ ===== */
@@ -598,7 +600,8 @@ figure.media:hover img { transform: scale(1.02); }
 .hero:not(.home-hero) { padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4.5rem); }
 .hero:not(.home-hero) h1 { font-size: clamp(1.7rem, 3.6vw, 2.75rem); line-height: 1.5; }
 @media (min-width: 62rem) {
-  .hero:not(.home-hero) .hero-mascot { width: 140px; bottom: 0; }
+  /* キャラクターは見出しの高さ（右上）に置く */
+  .hero:not(.home-hero) .hero-mascot { width: 140px; top: 0; bottom: auto; }
 }
 /* 区画：白い面と和紙の面を交互に（トップページは個別に指定済み） */
 main:not(:has(.home-hero)) > .section:nth-of-type(even) { background: var(--surface); }

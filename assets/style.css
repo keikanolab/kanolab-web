@@ -585,3 +585,10 @@ figure.media:hover img { transform: scale(1.02); }
 
 /* 本文の列に単独で置いたボタンが横いっぱいに伸びないようにする */
 .section .container > .btn { justify-self: start; align-self: start; }
+
+/* 公式概要の横のキャラクター：広い画面では本文の右、狭い画面では本文の下に小さく */
+.overview-mascot { display: block; width: 7rem; height: auto; margin: 1.5rem 0 0 auto; }
+@media (min-width: 48rem) {
+  .overview.has-photo:has(.overview-mascot) { grid-template-columns: minmax(0, 1fr) 12rem; align-items: center; }
+  .overview-mascot { width: 11rem; margin: 0 auto; }
+}

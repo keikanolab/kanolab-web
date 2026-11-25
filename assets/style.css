@@ -618,3 +618,12 @@ main:not(:has(.home-hero)) > .section { padding: clamp(3rem, 6vw, 5rem) 0; }
   .hero-inner:has(> .hero-mascot) { display: flex; flex-direction: column; }
   .hero-inner > .hero-mascot { display: block; order: -1; align-self: flex-end; width: 5.5rem; height: auto; margin: 0 0 -0.5rem; }
 }
+
+/* 日本語の見出しは「、」「。」の位置で改行する（句の途中で折り返さない。1行に収まらない長い句だけは中で折り返す） */
+.jp-phrase { display: inline-block; word-break: auto-phrase; }
+/* 句がなるべく1行に収まるよう、広い画面では見出しの幅を広げ、文字を少しだけ小さくする */
+@media (min-width: 62rem) {
+  .hero:not(.home-hero) h1 { max-width: 54rem; font-size: clamp(1.7rem, 2.9vw, 2.45rem); }
+  /* 右上のキャラクターに見出しが重ならないよう、本文側の右に余白を取る */
+  .hero-inner:has(> .hero-mascot) > div { padding-right: 160px; }
+}

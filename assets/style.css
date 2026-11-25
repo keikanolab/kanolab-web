@@ -592,3 +592,20 @@ figure.media:hover img { transform: scale(1.02); }
   .overview.has-photo:has(.overview-mascot) { grid-template-columns: minmax(0, 1fr) 12rem; align-items: center; }
   .overview-mascot { width: 11rem; margin: 0 auto; }
 }
+
+/* ===== A案：トップ以外のページ ===== */
+/* ページ冒頭：見出しを大きく、余白を広く。キャラクターははっきり見せる */
+.hero:not(.home-hero) { padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4.5rem); }
+.hero:not(.home-hero) h1 { font-size: clamp(1.7rem, 3.6vw, 2.75rem); line-height: 1.5; }
+@media (min-width: 62rem) {
+  .hero:not(.home-hero) .hero-mascot { width: 140px; bottom: 0; }
+}
+/* 区画：白い面と和紙の面を交互に（トップページは個別に指定済み） */
+main:not(:has(.home-hero)) > .section:nth-of-type(even) { background: var(--surface); }
+main:not(:has(.home-hero)) > .section + .section { border-top: 0; }
+main:not(:has(.home-hero)) > .section { padding: clamp(3rem, 6vw, 5rem) 0; }
+/* カード：上に柿渋色の線を引き、カード同士の間をあける（トップの研究領域と同じ形） */
+.card-grid { border-top: 0; gap: 2.25rem 2rem; }
+.card { border-bottom: 0; border-top: 2px solid var(--accent); padding: 1.5rem 0 0; }
+.card h3 { font-family: var(--font-body); font-size: 1.1rem; }
+.card figure.media { margin-bottom: 1rem; }

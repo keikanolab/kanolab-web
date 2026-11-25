@@ -612,3 +612,9 @@ main:not(:has(.home-hero)) > .section { padding: clamp(3rem, 6vw, 5rem) 0; }
 .card { border-bottom: 0; border-top: 2px solid var(--accent); padding: 1.5rem 0 0; }
 .card h3 { font-family: var(--font-body); font-size: 1.1rem; }
 .card figure.media { margin-bottom: 1rem; }
+
+/* 各ページ冒頭のキャラクター：狭い画面でも、見出しの上の右側に小さく出す（トップの公式概要と同じ） */
+@media (max-width: 61.99rem) {
+  .hero-inner:has(> .hero-mascot) { display: flex; flex-direction: column; }
+  .hero-inner > .hero-mascot { display: block; order: -1; align-self: flex-end; width: 5.5rem; height: auto; margin: 0 0 -0.5rem; }
+}

@@ -2,17 +2,17 @@
    レイアウトは現行サイト（Google Sites）のデザインを踏襲し、
    配色は制作マニュアルの指定（柿渋色・墨色・深緑・白）を優先する。 */
 :root {
-  --bg: #ffffff;
+  --bg: #f6efe6;          /* 和紙の地色（A案） */
   --surface: #ffffff;
   --tint: #f7efe9;        /* 柿渋の淡い地色 */
   --ink: #26221f;         /* 墨色 */
   --ink-soft: #5c544d;
-  --accent: #9a4a2f;      /* 柿渋色の赤褐色 */
-  --accent-dark: #7a3720;
+  --accent: #8c4128;      /* 柿渋色の赤褐色（A案：地色の上で読みやすい濃さ） */
+  --accent-dark: #6e301c;
   --on-accent: #ffffff;
   --accent-line: #d9b3a3; /* 区切り線用の淡い柿渋 */
   --green: #2f5d4a;       /* 深緑（少量） */
-  --line: #e6ded6;
+  --line: #e3d6c8;
   --todo-bg: #fff1b8;
   --todo-ink: #5a4300;
   color-scheme: light;
@@ -20,7 +20,7 @@
   --max-width: 1080px;
   --font-serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
   --font-display: "Oswald", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
-  --font-body: "Open Sans", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", system-ui, sans-serif;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -60,7 +60,7 @@ a:hover { color: var(--accent-dark); }
 
 /* ヘッダー・ナビゲーション */
 .site-header {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(246, 239, 230, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
   position: sticky;
@@ -130,7 +130,7 @@ a:hover { color: var(--accent-dark); }
 
 /* ヒーロー：本文幅を最優先し、マスコットは装飾として扱う */
 .hero {
-  background: linear-gradient(180deg, var(--tint) 0%, var(--bg) 100%);
+  background: var(--bg);
   padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem);
 }
 .hero-inner { position: relative; }
@@ -464,3 +464,124 @@ table.alumni { border-collapse: collapse; width: 100%; max-width: 52rem; font-si
 table.alumni caption { position: absolute; left: -9999px; }
 table.alumni th, table.alumni td { text-align: left; padding: .45rem .7rem; border-bottom: 1px solid var(--line, #ddd); vertical-align: top; }
 table.alumni th { font-weight: 700; border-bottom-width: 2px; }
+
+/* ===== A案「柿渋の紙」：サイト共通の仕上げ ===== */
+/* ボタン：角を立て、押せる大きさ（48px）を確保。マウスを載せると少し浮き、押すと沈む */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 1.6rem;
+  border-radius: 2px;
+  font-weight: 700;
+  transition: transform 0.15s ease, background 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(1px); }
+.card .btn, .card .btn.secondary { min-height: 0; display: inline; }
+.card .btn:hover { transform: none; }
+/* 写真：枠の中で少しだけ寄る */
+figure.media { overflow: hidden; border-radius: var(--radius); }
+figure.media img { transition: transform 0.4s ease; }
+figure.media:hover img { transform: scale(1.02); }
+/* ヒーロー：表示時に一度だけ下からふわっと出る */
+@keyframes kl-enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.hero .container > * { animation: kl-enter 0.7s ease-out both; }
+/* フッター：墨色の帯 */
+.site-footer { background: var(--ink); color: #d9cfc6; }
+.site-footer a { color: #f1e6dc; }
+.site-footer a:hover { color: #ffffff; }
+.site-footer strong { color: #ffffff; }
+.page-info { border-top-color: #5c544d; }
+@media (prefers-reduced-motion: reduce) {
+  .btn, figure.media img { transition: none; }
+  .btn:hover, .btn:active, figure.media:hover img { transform: none; }
+  .hero .container > * { animation: none; }
+}
+
+/* ===== A案：トップページ ===== */
+.home-hero { padding: clamp(3rem, 8vw, 6rem) 0; }
+.home-hero .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.home-hero h1 {
+  max-width: none;
+  font-size: clamp(1.8rem, 3.4vw, 2.75rem);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.home-hero .lead { font-size: clamp(1rem, 1.6vw, 1.15rem); }
+.home-hero .eyebrow { margin-bottom: 1.25rem; }
+.home-hero-photo { margin: 0; aspect-ratio: 4 / 5; max-height: 40rem; }
+.home-hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.home-hero .btn-row { margin-top: 2rem; }
+/* 白い面と和紙の面を交互にして、区切りをはっきりさせる */
+.section.home-white { background: var(--surface); }
+.section.home-roomy { padding: clamp(3.5rem, 8vw, 7rem) 0; }
+/* 広い区画：見出しは左列に置かず、上に大きく出す */
+.section.home-roomy .container { display: block !important; }
+.section.home-roomy .container > h2,
+.section.home-roomy .container:has(> h2:first-child) > h2 {
+  position: static;
+  border-top: 0;
+  padding-top: 0;
+  margin: 0 0 2.5rem;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+}
+/* 三つの研究領域：番号付きの3列 */
+.home-areas { border-top: 0; gap: 2.5rem; }
+.home-areas .card { border-bottom: 0; border-top: 2px solid var(--accent); padding-top: 1.75rem; }
+.home-num {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--accent);
+}
+.home-areas .card h3 { font-family: var(--font-body); font-size: 1.15rem; }
+/* ワークショップの写真帯 */
+.home-photo-lead {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  gap: 1rem 2.5rem;
+  align-items: end;
+  margin-bottom: 2rem;
+}
+.home-photo-lead h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.45;
+}
+.home-photo-lead p { margin: 0; color: var(--ink-soft); }
+.home-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+}
+.home-photos figure.media { margin: 0; max-width: none; aspect-ratio: 4 / 3; }
+.home-photos figure.media img { width: 100%; height: 100%; object-fit: cover; border: 0; }
+/* 主宰者：写真と紹介文を左右に */
+.home-pi-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+.home-pi-body figure.media { margin: 0; aspect-ratio: 1 / 1; max-width: 20rem; }
+.home-pi-body figure.media img { width: 100%; height: 100%; object-fit: cover; border: 0; }
+/* 最後の呼びかけ：柿渋色の帯 */
+.section.home-cta { background: var(--accent); color: var(--on-accent); border-top: 0; }
+.section.home-cta h2 { color: var(--on-accent); border-top-color: var(--on-accent) !important; }
+.section.home-cta p { color: var(--on-accent); }
+.section.home-cta .btn { background: var(--on-accent); color: var(--accent); border-color: var(--on-accent); }
+.section.home-cta .btn:hover { background: #f6efe6; color: var(--accent-dark); }
+.section.home-cta .btn.secondary { background: transparent; color: var(--on-accent); }
+.section.home-cta .btn.secondary:hover { background: rgba(255, 255, 255, 0.12); color: var(--on-accent); }
+.section.home-cta a:focus-visible { outline-color: var(--on-accent); }
+
+/* 本文の列に単独で置いたボタンが横いっぱいに伸びないようにする */
+.section .container > .btn { justify-self: start; align-self: start; }

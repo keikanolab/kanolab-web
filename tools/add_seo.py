@@ -14,6 +14,13 @@ ROOT = Path(__file__).resolve().parent.parent
 START, END = "<!-- seo:start -->", "<!-- seo:end -->"
 SITE_NAME = {"ja": "加納研究室", "en": "Kano Lab"}
 LOCALE = {"ja": "ja_JP", "en": "en_US"}
+PUBLISHER = {
+    "ja": {"@type": "ResearchOrganization", "name": "加納研究室", "alternateName": "Kano Lab",
+           "parentOrganization": {"@type": "CollegeOrUniversity", "name": "滋賀大学"}},
+    "en": {"@type": "ResearchOrganization", "name": "Kano Lab",
+           "alternateName": ["Science Communication Laboratory, Shiga University", "加納研究室"],
+           "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Shiga University"}},
+}
 
 
 def url_path(page: Path) -> str:
@@ -71,7 +78,7 @@ def build_block(text: str, path: str, lang: str) -> str:
             "url": url,
             "inLanguage": lang,
             "isPartOf": {"@type": "WebSite", "name": SITE_NAME[lang], "url": BASE + ("en/" if lang == "en" else "")},
-            "publisher": {"@type": "ResearchOrganization", "name": "加納研究室", "alternateName": "Kano Lab"},
+            "publisher": PUBLISHER[lang],
         }
         if modified:
             data["dateModified"] = modified
